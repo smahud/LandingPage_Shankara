@@ -1,0 +1,391 @@
+/* Perf: scan HANYA src/ (default v4 men-scan SELURUH project — upload/*.html
+   orisinal, examples/, 45+ komponen ui tak terpakai ikut membangkitkan utility
+   → CSS bundle pernah 129KB). */
+@import "tailwindcss" source(none);
+@import "tw-animate-css";
+@source "../**/*.{ts,tsx}";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-marcellus);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  /* ─── Shankara brand palette ─── */
+  --color-forest-950: #0a1b13;
+  --color-forest-900: #12281e;
+  --color-forest-850: #16301f0d;
+  --color-forest-800: #1f402f;
+  --color-forest-700: #1c3b2b;
+  --color-forest-600: #2b5240;
+  --color-sage-700: #3f5a4b;
+  --color-sage-600: #547564;
+  --color-sage-500: #6a8a78;
+  --color-sage-400: #93ab9d;
+  --color-mint-200: #d5e6dd;
+  --color-mint-100: #e3f0e9;
+  --color-mint-50: #ecfaf3;
+  --color-cream: #f6f3ec;
+  --color-cream-dark: #efe9dc;
+  --color-gold-600: #a8874e;
+  --color-gold-500: #c4a265;
+  --color-gold-400: #d8bc85;
+  --color-gold-300: #e6d3a8;
+  --color-whatsapp: #25d366;
+  --color-whatsapp-dark: #1da851;
+}
+
+:root {
+  --radius: 1rem;
+  --background: #fbfaf6;
+  --foreground: #16241c;
+  --card: #ffffff;
+  --card-foreground: #16241c;
+  --popover: #ffffff;
+  --popover-foreground: #16241c;
+  --primary: #1f402f;
+  --primary-foreground: #f6f3ec;
+  --secondary: #ecfaf3;
+  --secondary-foreground: #1f402f;
+  --muted: #f0efe8;
+  --muted-foreground: #5b6b60;
+  --accent: #ecfaf3;
+  --accent-foreground: #1f402f;
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: #e2e0d6;
+  --input: #e2e0d6;
+  --ring: #547564;
+  --chart-1: #547564;
+  --chart-2: #c4a265;
+  --chart-3: #1f402f;
+  --chart-4: #93ab9d;
+  --chart-5: #d8bc85;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #16241c;
+  --sidebar-primary: #1f402f;
+  --sidebar-primary-foreground: #f6f3ec;
+  --sidebar-accent: #ecfaf3;
+  --sidebar-accent-foreground: #1f402f;
+  --sidebar-border: #e2e0d6;
+  --sidebar-ring: #547564;
+}
+
+.dark {
+  --background: #0a1b13;
+  --foreground: #f6f3ec;
+  --card: #12281e;
+  --card-foreground: #f6f3ec;
+  --popover: #12281e;
+  --popover-foreground: #f6f3ec;
+  --primary: #ecfaf3;
+  --primary-foreground: #12281e;
+  --secondary: #1f402f;
+  --secondary-foreground: #f6f3ec;
+  --muted: #16301f;
+  --muted-foreground: #93ab9d;
+  --accent: #1f402f;
+  --accent-foreground: #f6f3ec;
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: #547564;
+  --chart-1: #547564;
+  --chart-2: #c4a265;
+  --chart-3: #93ab9d;
+  --chart-4: #d8bc85;
+  --chart-5: #6a8a78;
+  --sidebar: #12281e;
+  --sidebar-foreground: #f6f3ec;
+  --sidebar-primary: #ecfaf3;
+  --sidebar-primary-foreground: #12281e;
+  --sidebar-accent: #1f402f;
+  --sidebar-accent-foreground: #f6f3ec;
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: #547564;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 88px;
+    /* Canvas must never be white: any overscroll / rubber-band /
+       address-bar reveal / WebView gap shows brand-dark instead. */
+    background-color: #0a1b13;
+    overscroll-behavior-x: none;
+    /* Slim, dark root scrollbar (some Android WebViews still paint a
+       chunky white native scrollbar on the right edge). */
+    scrollbar-width: thin;
+    scrollbar-color: #2b5240 #0a1b13;
+  }
+  html::-webkit-scrollbar {
+    width: 10px;
+  }
+  html::-webkit-scrollbar-track {
+    background: #0a1b13;
+  }
+  html::-webkit-scrollbar-thumb {
+    background: #2b5240;
+    border-radius: 999px;
+    border: 2px solid #0a1b13;
+  }
+  html::-webkit-scrollbar-thumb:hover {
+    background: #547564;
+  }
+  /* Hard guarantee: never allow horizontal panning, even during
+     entrance animations (transform) or decorative absolute elements. */
+  html,
+  body {
+    overflow-x: hidden;
+    overflow-x: clip;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  ::selection {
+    background: #c4a265;
+    color: #12281e;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-marcellus), ui-serif, Georgia, serif;
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Subtle grain texture for dark sections */
+  .grain-dark {
+    background-color: #12281e;
+    background-image:
+      radial-gradient(ellipse 80% 60% at 20% 0%, rgba(84, 117, 100, 0.22), transparent),
+      radial-gradient(ellipse 60% 50% at 100% 100%, rgba(196, 162, 101, 0.12), transparent),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' opacity='0.05'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Elegant thin scrollbar for scrollable lists */
+  .nice-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: #547564 transparent;
+  }
+  .nice-scroll::-webkit-scrollbar {
+    width: 6px;
+  }
+  .nice-scroll::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .nice-scroll::-webkit-scrollbar-thumb {
+    background: #54756466;
+    border-radius: 999px;
+  }
+  .nice-scroll::-webkit-scrollbar-thumb:hover {
+    background: #547564aa;
+  }
+
+  /* ── Pure-CSS entrance animations (penting: paint TANPA menunggu JS hydrate.
+     Dulu framer-motion → semua teks hero opacity:0 sampai hydration selesai
+     → LCP mobile 4.8s. Sekarang CSS → konten paint begitu CSS siap). ── */
+  .hero-zoom {
+    animation: hero-zoom 2.2s cubic-bezier(0.21, 0.6, 0.35, 1) both;
+  }
+  @keyframes hero-zoom {
+    from {
+      transform: scale(1.08);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+  .anim-hero-1 {
+    animation: fade-up 0.7s 0.15s cubic-bezier(0.21, 0.6, 0.35, 1) both;
+  }
+  .anim-hero-2 {
+    animation: fade-up 0.85s 0.3s cubic-bezier(0.21, 0.6, 0.35, 1) both;
+  }
+  .anim-hero-3 {
+    animation: fade-up 0.85s 0.45s cubic-bezier(0.21, 0.6, 0.35, 1) both;
+  }
+  .anim-hero-4 {
+    animation: fade-up 0.7s 0.62s cubic-bezier(0.21, 0.6, 0.35, 1) both;
+  }
+  .anim-hero-5 {
+    animation: fade-up 0.7s 0.8s cubic-bezier(0.21, 0.6, 0.35, 1) both;
+  }
+  .anim-hero-cue {
+    animation: fade-in 1s 1.4s both;
+  }
+  .anim-hero-bounce {
+    animation: bounce-soft 1.8s 2s ease-in-out infinite;
+  }
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes bounce-soft {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(7px);
+    }
+  }
+
+  /* Scroll-reveal — class .reveal-in ditambahkan oleh IntersectionObserver
+     (lihat reveal.tsx), transisi di sini. Nol JS animation library. */
+  .reveal {
+    opacity: 0;
+    transition:
+      opacity 0.7s cubic-bezier(0.21, 0.6, 0.35, 1),
+      transform 0.7s cubic-bezier(0.21, 0.6, 0.35, 1);
+  }
+  .reveal-up {
+    transform: translateY(28px);
+  }
+  .reveal-left {
+    transform: translateX(28px);
+  }
+  .reveal-right {
+    transform: translateX(-28px);
+  }
+  .reveal-in {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Marquee */
+  .marquee-track {
+    animation: marquee 36s linear infinite;
+  }
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  /* Slow float for decorative elements */
+  .float-slow {
+    animation: float-slow 7s ease-in-out infinite;
+  }
+  @keyframes float-slow {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-12px);
+    }
+  }
+
+  /* Pulsing ring for WhatsApp FAB */
+  .wa-pulse::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    background: rgba(37, 211, 102, 0.45);
+    animation: wa-pulse 2.2s ease-out infinite;
+    z-index: -1;
+  }
+  @keyframes wa-pulse {
+    0% {
+      transform: scale(1);
+      opacity: 0.7;
+    }
+    80%,
+    100% {
+      transform: scale(1.55);
+      opacity: 0;
+    }
+  }
+
+  /* WhatsApp FAB label: expand ONLY on devices with a real hover pointer.
+     Touch screens keep the compact circle (no sticky :hover after taps). */
+  @media (hover: hover) and (pointer: fine) {
+    .wa-fab:hover .wa-label {
+      margin-left: 0.625rem;
+      max-width: 180px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track,
+    .float-slow,
+    .wa-pulse::before,
+    .hero-zoom,
+    .anim-hero-1,
+    .anim-hero-2,
+    .anim-hero-3,
+    .anim-hero-4,
+    .anim-hero-5,
+    .anim-hero-cue,
+    .anim-hero-bounce {
+      animation: none !important;
+    }
+    .reveal {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
